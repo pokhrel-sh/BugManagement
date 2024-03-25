@@ -6,13 +6,14 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const db = new sqlite3.Database("./Database/data.sqlite3");
 
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
+const db = new sqlite3.Database("Database/data.sqlite3", (err) => {
+    if (err) {
+      console.error('Error opening database:', err.message);
+    } else {
+      console.log('Connected to the SQLite database.');
+    }
+  });
 
 //gets the bugs from the database, limits at 30.
 app.get("/bugs"), (req, res) => {
@@ -95,5 +96,9 @@ app.delete("/history/:id", (req, res) => {
             res.json({changes: this.changes});
         }
     });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
