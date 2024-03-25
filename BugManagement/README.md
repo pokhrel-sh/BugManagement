@@ -1,3 +1,6 @@
+## When running, do "npm run dev" in one terminal, and "node server.cjs" in another. Go to this [link](http://localhost:5173/database) after running both in terminal.
+
+
 ## Bug Tracking Database System
 `Problem`: Companies are flooded with bugs. Even when developers find the bugs, they dont
 do anything about it. This hinders the any company's growth, forcing them into standstill.\
@@ -24,5 +27,7 @@ do anything about it. This hinders the any company's growth, forcing them into s
 
 This is a Web-App to keep track of it, you are able to add new bugs, update the bugs, and remove the bugs.
 This project is made for CS3200 - Database Design class, however, I'll keep working on it as time goes.
+
+
 
 Thank you
