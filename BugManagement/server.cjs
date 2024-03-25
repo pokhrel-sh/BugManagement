@@ -1,14 +1,18 @@
 const express = require("express");
 const path = require("path");
-const sqlite3 = require(sqlite3);
+const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
-const db = new sqlite3.Database("database/data.sqlite3");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // Enable All CORS Requests
-app.use(express.json());
+const db = new sqlite3.Database("./Database/data.sqlite3");
+
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 
 //gets the bugs from the database, limits at 30.
 app.get("/bugs"), (req, res) => {
